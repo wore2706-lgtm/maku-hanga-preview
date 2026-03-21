@@ -6,35 +6,35 @@
     <title>Maku Hanga — Kreativagentur · Studentenwohnungen · KI-Content | Kärnten</title>
     <meta name="description" content="Maku Hanga: Kreativagentur für Marketing, Promotion, Recruiting & KI-Content. Plus 21 Studentenzimmer in Klagenfurt. Aus Kärnten, für Kärnten.">
     <meta name="keywords" content="Kreativagentur Kärnten, Marketing Agentur Völkermarkt, Studentenwohnungen Klagenfurt, KI Content, Recruiting Kärnten">
-    <meta property="og:title" content="Maku Hanga — let's do it.">
-    <meta property="og:description" content="Kreativagentur · Studentenwohnungen · KI-Content aus Kärnten.">
+    <meta property="og:title" content="Maku Hanga — Wir schaffen es!">
+    <meta property="og:description" content="Kreativagentur · Studentenwohnungen · KI-Content aus Kärnten. Marketing, das nicht nach Werbung aussieht.">
     <meta property="og:image" content="logo.png">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_AT">
     <link rel="icon" href="logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --black: #0a0a0a;
-            --white: #fafafa;
-            --gray: #888;
-            --gray-dark: #333;
-            --gray-light: #e0e0e0;
+            --anthrazit: #1a1a2e;
+            --anthrazit-light: #252542;
             --orange: #e8622a;
             --orange-glow: #ff7b3a;
-            --wood-warm: #8B6914;
-            --wood-light: #C4A35A;
+            --cream: #faf8f4;
+            --warm-white: #f0ebe4;
+            --text-dark: #1a1a2e;
+            --text-light: #f0ebe4;
+            --text-muted: #8a8a9e;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Outfit', sans-serif;
             font-weight: 400;
-            color: var(--white);
-            background: var(--black);
+            color: var(--text-dark);
+            background: var(--cream);
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -46,48 +46,56 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1.5rem 3rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.4s ease;
-            mix-blend-mode: difference;
         }
 
         nav.scrolled {
-            mix-blend-mode: normal;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(20px);
-            padding: 0.8rem 3rem;
+            padding: 0.6rem 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
 
         nav .nav-logo {
-            width: 40px;
-            height: 40px;
-            animation: logoSpin 30s linear infinite;
+            width: 48px;
+            height: 48px;
+            transition: transform 0.3s ease;
         }
 
-        @keyframes logoSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        nav .nav-logo:hover { transform: rotate(15deg); }
 
         nav .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         nav .nav-links a {
-            color: var(--white);
+            color: var(--text-light);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            position: relative;
             transition: color 0.3s;
         }
 
+        nav .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: width 0.3s ease;
+        }
+
+        nav .nav-links a:hover::after { width: 100%; }
         nav .nav-links a:hover { color: var(--orange); }
 
         .nav-burger {
@@ -101,466 +109,524 @@
         .nav-burger span {
             width: 28px;
             height: 2px;
-            background: var(--white);
+            background: var(--text-light);
             transition: all 0.3s;
         }
 
         /* === HERO === */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
+            background: var(--anthrazit);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 2rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-bg {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0e08 30%, #0a0a0a 60%, #0d0a12 100%);
-            background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(232, 98, 42, 0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(232, 98, 42, 0.05) 0%, transparent 50%);
+            animation: heroGlow 12s ease-in-out infinite alternate;
         }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-5%, 3%) scale(1.1); }
         }
 
         .hero-logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 3rem;
-            animation: logoSpin 30s linear infinite;
-            filter: drop-shadow(0 0 50px rgba(232, 98, 42, 0.3));
+            width: 140px;
+            height: 140px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+            animation: logoFloat 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(232, 98, 42, 0.3));
         }
 
-        .hero-text {
-            font-family: 'Libre Baskerville', serif;
-            font-size: clamp(1.2rem, 3vw, 2rem);
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            color: var(--text-light);
+            max-width: 700px;
+            line-height: 1.25;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .hero h1 em {
             font-style: italic;
-            color: var(--white);
-            letter-spacing: 0.15em;
-            font-weight: 400;
+            color: var(--orange);
+            font-weight: 600;
         }
 
         .hero-sub {
-            margin-top: 2rem;
-            font-size: 0.75rem;
-            color: var(--gray);
-            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 1.5rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero-arrow {
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 98, 42, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            padding: 0.9rem 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .scroll-hint {
             position: absolute;
-            bottom: 3rem;
+            bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1;
-            animation: arrowBounce 2s ease-in-out infinite;
-            cursor: pointer;
         }
 
-        .hero-arrow svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--orange);
-            stroke-width: 2;
-            fill: none;
+        .scroll-hint span {
+            display: block;
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--orange), transparent);
+            margin: 0 auto;
+            animation: scrollPulse 2s ease-in-out infinite;
         }
 
-        @keyframes arrowBounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(12px); }
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 1; transform: scaleY(1); }
+            50% { opacity: 0.3; transform: scaleY(0.6); }
         }
 
-        /* === SCENE: Frame-style sections === */
-        .scene {
-            min-height: 100vh;
+        /* === CHAPTER TRANSITIONS === */
+        .chapter-label {
+            font-family: 'Fraunces', serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--orange);
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
+            gap: 1rem;
         }
 
-        .scene-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 6rem 3rem;
-            width: 100%;
+        .chapter-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--orange);
         }
 
-        /* === SCENE 1: INTRO === */
-        .scene-intro {
-            background: var(--white);
-            color: var(--black);
-        }
-
-        .scene-intro .scene-inner {
-            max-width: 800px;
+        /* === STORY BRIDGE (transition sections) === */
+        .story-bridge {
+            padding: 6rem 2rem;
             text-align: center;
+            background: var(--cream);
+            position: relative;
         }
 
-        .intro-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--orange);
-            margin-bottom: 2rem;
-            font-weight: 600;
+        .story-bridge .bridge-text {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+            color: var(--text-dark);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.4;
+            font-weight: 300;
         }
 
-        .intro-text {
-            font-family: 'Libre Baskerville', serif;
-            font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-            line-height: 1.5;
-            color: var(--black);
-            font-weight: 400;
-        }
-
-        .intro-text em {
+        .story-bridge .bridge-text em {
             color: var(--orange);
             font-style: italic;
         }
 
-        /* === SCENE 2: SERVICES (Horizontal Scroll) === */
-        .scene-services {
-            background: var(--black);
-            min-height: auto;
-            padding: 6rem 0;
-        }
-
-        .scene-services .scene-header {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 3rem 3rem;
-        }
-
-        .scene-header .scene-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--orange);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .scene-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-        }
-
-        .services-scroll {
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            display: flex;
-            gap: 1.5rem;
-            padding: 1rem 3rem 2rem;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .services-scroll::-webkit-scrollbar { display: none; }
-
-        .service-frame {
-            flex: 0 0 min(380px, 80vw);
-            scroll-snap-align: start;
-            background: var(--gray-dark);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 16px;
-            padding: 3rem 2.5rem;
+        /* === SERVICES === */
+        .services-section {
+            background: var(--anthrazit);
+            padding: 6rem 2rem;
             position: relative;
-            transition: all 0.4s ease;
-            overflow: hidden;
         }
 
-        .service-frame::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--orange);
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.4s ease;
-        }
-
-        .service-frame:hover::before { transform: scaleY(1); }
-
-        .service-frame:hover {
-            background: #3a3a3a;
-            transform: translateY(-6px);
-        }
-
-        .sf-number {
-            font-size: 4rem;
-            font-weight: 700;
-            color: rgba(232, 98, 42, 0.15);
-            line-height: 1;
-            margin-bottom: 1.5rem;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        .sf-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
-            transition: all 0.4s ease;
-        }
-
-        .service-frame:hover .sf-icon {
-            transform: scale(1.3) rotate(10deg);
-        }
-
-        .service-frame h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: var(--white);
-        }
-
-        .service-frame p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .scroll-hint-text {
-            text-align: center;
-            color: var(--gray);
-            font-size: 0.8rem;
-            margin-top: 1.5rem;
-            letter-spacing: 0.1em;
-            animation: fadeInOut 3s ease-in-out infinite;
-        }
-
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-
-        /* === SCENE 3: FLATS === */
-        .scene-flats {
-            background: var(--black);
-            position: relative;
-            min-height: auto;
-        }
-
-        .scene-flats::before {
+        .services-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg,
-                rgba(139, 105, 20, 0.08) 0%,
-                transparent 40%,
-                rgba(196, 163, 90, 0.05) 80%,
-                transparent 100%);
+            height: 120px;
+            background: linear-gradient(to bottom, var(--cream), var(--anthrazit));
+        }
+
+        .services-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 3rem;
+        }
+
+        .services-section .chapter-label { color: var(--orange); }
+
+        .services-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .services-section .section-intro {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--anthrazit-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--orange);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(232, 98, 42, 0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-icon { transform: scale(1.15) rotate(-5deg); }
+
+        .service-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* === COUNTER SECTION === */
+        .counter-section {
+            background: var(--orange);
+            padding: 4rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .counter-item {
+            text-align: center;
+            color: white;
+        }
+
+        .counter-number {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .counter-label {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            opacity: 0.85;
+        }
+
+        /* === FLATS === */
+        .flats-section {
+            background: var(--cream);
+            padding: 6rem 2rem;
+            position: relative;
         }
 
         .flats-inner {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 7rem 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .flats-top {
             display: grid;
-            grid-template-columns: auto 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: start;
-            margin-bottom: 4rem;
+            align-items: center;
         }
 
-        .flats-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(6rem, 15vw, 12rem);
-            font-weight: 700;
-            color: var(--orange);
-            line-height: 0.85;
-            opacity: 0.9;
+        .flats-visual {
+            background: linear-gradient(135deg, #c9a87c 0%, #dfc5a0 30%, #e8dcc8 60%, #b8956a 100%);
+            border-radius: 20px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.1);
         }
 
-        .flats-content .scene-label {
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--orange);
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .flats-visual::before {
+            content: '🏠';
+            font-size: 5rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.3;
+        }
+
+        .flats-visual .room-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 4px;
+            padding: 20px;
+        }
+
+        .room-cell {
+            background: rgba(255,255,255,0.25);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .room-cell:hover {
+            background: rgba(232, 98, 42, 0.6);
+            transform: scale(1.05);
         }
 
         .flats-content h2 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Fraunces', serif;
             font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 700;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            font-weight: 600;
+            color: var(--text-dark);
         }
 
-        .flats-content p {
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
+        .flat-features {
+            list-style: none;
+            margin: 1.5rem 0 2rem;
         }
 
-        .flats-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .ff-item {
+        .flat-features li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(26,26,46,0.08);
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            padding: 1rem;
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            background: rgba(255,255,255,0.02);
+            font-size: 1rem;
         }
 
-        .ff-item:hover {
-            border-color: rgba(232, 98, 42, 0.3);
-            background: rgba(232, 98, 42, 0.05);
-        }
-
-        .ff-item .ff-icon { font-size: 1.3rem; }
-        .ff-item span:last-child { font-size: 0.9rem; color: var(--gray); }
+        .flat-features li span { font-size: 1.2rem; }
 
         .btn-flats {
-            background: transparent;
-            color: var(--orange);
+            background: var(--orange);
+            color: white;
             padding: 0.9rem 2rem;
-            border: 2px solid var(--orange);
-            border-radius: 0;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn-flats:hover {
-            background: var(--orange);
-            color: var(--black);
+            background: var(--orange-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(232, 98, 42, 0.3);
         }
 
-        /* === SCENE 4: LIZZY AI === */
-        .scene-lizzy {
-            background: var(--white);
-            color: var(--black);
-            min-height: auto;
+        /* === LIZZY AI === */
+        .lizzy-section {
+            background: var(--anthrazit);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lizzy-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232, 98, 42, 0.1) 0%, transparent 70%);
         }
 
         .lizzy-inner {
-            max-width: 900px;
+            max-width: 700px;
             margin: 0 auto;
-            padding: 7rem 3rem;
-            text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .lizzy-badge {
             display: inline-block;
-            background: var(--orange);
-            color: white;
-            padding: 0.4rem 1.2rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
+            background: rgba(232, 98, 42, 0.15);
+            color: var(--orange);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .lizzy-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .lizzy-section p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
         }
 
         .lizzy-avatar {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: var(--black);
+            background: linear-gradient(135deg, var(--orange), #ff9a5c);
             margin: 0 auto 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            position: relative;
+            box-shadow: 0 0 60px rgba(232, 98, 42, 0.3);
+            animation: avatarPulse 3s ease-in-out infinite;
         }
 
-        .lizzy-avatar::after {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            right: -6px;
-            bottom: -6px;
-            border-radius: 50%;
-            border: 2px solid var(--orange);
-            animation: avatarPing 3s ease-in-out infinite;
-        }
-
-        @keyframes avatarPing {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.5; }
-        }
-
-        .lizzy-quote {
-            font-family: 'Libre Baskerville', serif;
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            font-style: italic;
-            line-height: 1.5;
-            color: var(--black);
-            margin-bottom: 1.5rem;
-        }
-
-        .lizzy-desc {
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.7;
-            max-width: 550px;
-            margin: 0 auto 2.5rem;
+        @keyframes avatarPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(232, 98, 42, 0.2); }
+            50% { box-shadow: 0 0 80px rgba(232, 98, 42, 0.4); }
         }
 
         .btn-youtube {
-            background: var(--black);
-            color: var(--white);
-            padding: 0.9rem 2rem;
-            border: none;
-            border-radius: 0;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
+            background: transparent;
+            color: var(--orange);
+            border: 2px solid var(--orange);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -569,80 +635,94 @@
         .btn-youtube:hover {
             background: var(--orange);
             color: white;
+            transform: translateY(-2px);
         }
 
-        /* === SCENE 5: KONTAKT === */
-        .scene-kontakt {
-            background: var(--black);
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
+        /* === KONTAKT === */
+        .kontakt-section {
+            background: var(--cream);
+            padding: 6rem 2rem;
         }
 
         .kontakt-inner {
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 6rem 3rem;
             text-align: center;
         }
 
-        .kontakt-inner h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-style: italic;
-            margin-bottom: 3rem;
-            font-weight: 400;
+        .kontakt-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
         }
 
-        .kontakt-line {
-            display: block;
-            margin-bottom: 1.5rem;
-        }
-
-        .kontakt-line a {
-            color: var(--white);
-            text-decoration: none;
+        .kontakt-section .kontakt-sub {
+            color: var(--text-muted);
             font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            transition: color 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
+            margin-bottom: 3rem;
         }
 
-        .kontakt-line a:hover { color: var(--orange); }
+        .kontakt-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
 
-        .kontakt-line .kl-icon { font-size: 1.3rem; }
+        .kontakt-item {
+            padding: 2rem;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
 
-        .kontakt-address {
-            margin-top: 2.5rem;
-            color: var(--gray);
-            font-size: 0.9rem;
+        .kontakt-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .kontakt-item .ki { font-size: 2rem; margin-bottom: 1rem; }
+
+        .kontakt-item h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .kontakt-item a {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .kontakt-item a:hover { text-decoration: underline; }
+
+        .kontakt-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         /* === FOOTER === */
         footer {
-            background: var(--black);
-            border-top: 1px solid rgba(255,255,255,0.06);
-            color: var(--gray);
-            padding: 3rem;
+            background: var(--anthrazit);
+            color: var(--text-muted);
+            padding: 3rem 2rem;
             text-align: center;
-            font-size: 0.8rem;
-            line-height: 2;
+            font-size: 0.85rem;
+            line-height: 1.8;
         }
 
         footer .footer-logo {
-            width: 36px;
-            height: 36px;
+            width: 50px;
+            height: 50px;
             margin-bottom: 1rem;
-            opacity: 0.5;
-            transition: all 0.3s;
+            opacity: 0.7;
+            transition: opacity 0.3s;
         }
 
         footer .footer-logo:hover { opacity: 1; }
-
-        footer strong { color: var(--white); }
 
         footer a {
             color: var(--orange);
@@ -651,22 +731,58 @@
 
         footer a:hover { text-decoration: underline; }
 
-        footer .footer-legal {
-            margin-top: 1.5rem;
-            opacity: 0.5;
-        }
+        footer .footer-legal { margin-top: 1.5rem; opacity: 0.6; }
 
         /* === SCROLL REVEAL === */
-        .sr {
+        .reveal {
             opacity: 0;
-            transform: translateY(25px);
+            transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .sr.visible {
+        .reveal.visible {
             opacity: 1;
-            transform: none;
+            transform: translateY(0);
         }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* === HOVER TEXT CHANGE === */
+        .hover-swap .original { display: inline; }
+        .hover-swap .swapped { display: none; color: var(--orange); }
+        .hover-swap:hover .original { display: none; }
+        .hover-swap:hover .swapped { display: inline; }
 
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
@@ -681,35 +797,29 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: rgba(10, 10, 10, 0.98);
+                background: rgba(26, 26, 46, 0.98);
                 justify-content: center;
                 align-items: center;
-                gap: 2.5rem;
+                gap: 2rem;
                 z-index: 1000;
             }
 
-            nav .nav-links.open a { font-size: 1.2rem; }
+            nav .nav-links.open a { font-size: 1.3rem; }
 
-            nav { padding: 1rem 1.5rem; }
-            nav.scrolled { padding: 0.6rem 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
 
-            .scene-inner { padding: 4rem 1.5rem; }
-
-            .flats-top {
+            .flats-inner {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-                text-align: center;
             }
 
-            .flats-features { grid-template-columns: 1fr; }
+            .flats-visual { height: 250px; }
 
-            .flats-inner { padding: 5rem 1.5rem; }
-            .lizzy-inner { padding: 5rem 1.5rem; }
-            .kontakt-inner { padding: 4rem 1.5rem; }
+            .kontakt-grid { grid-template-columns: 1fr; }
 
-            .service-frame { flex: 0 0 min(320px, 85vw); }
+            .counter-section { gap: 2rem; }
 
-            .hero-logo { width: 90px; height: 90px; }
+            .hero-logo { width: 100px; height: 100px; }
         }
     </style>
 </head>
@@ -717,145 +827,156 @@
 
     <!-- Navigation -->
     <nav id="navbar">
-        <img src="logo.png" alt="Maku Hanga" class="nav-logo">
+        <img src="logo.png" alt="Maku Hanga Logo" class="nav-logo">
         <ul class="nav-links" id="navLinks">
             <li><a href="#agentur">Agentur</a></li>
             <li><a href="#flats">Flats</a></li>
             <li><a href="#lizzy">Lizzy AI</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
-        <div class="nav-burger" onclick="toggleNav()">
+        <div class="nav-burger" id="navBurger" onclick="toggleNav()">
             <span></span><span></span><span></span>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <img src="logo.png" alt="Maku Hanga" class="hero-logo">
-            <div class="hero-text">let's do it.</div>
-            <p class="hero-sub">Kreativagentur · Studentenwohnungen · KI-Content | Kärnten</p>
+        <img src="logo.png" alt="Maku Hanga" class="hero-logo">
+        <h1>Stell dir vor, Marketing fühlt sich nicht wie <em>Marketing</em> an.</h1>
+        <p class="hero-sub">Kreativagentur · Studentenwohnungen · KI-Content | Kärnten</p>
+        <div class="hero-ctas">
+            <a href="#kontakt" class="btn-primary">Kontakt aufnehmen →</a>
+            <a href="#flats" class="btn-secondary">Unsere Flats</a>
         </div>
-        <a href="#intro" class="hero-arrow">
-            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </a>
+        <div class="scroll-hint"><span></span></div>
     </section>
 
-    <!-- Scene: Intro -->
-    <section class="scene scene-intro" id="intro">
-        <div class="scene-inner">
-            <p class="intro-label sr">Maku Hanga · Maori</p>
-            <p class="intro-text sr" style="transition-delay: 0.1s">Wir sind eine kleine Agentur aus Kärnten. Wir machen <em>Marketing, das nicht nach Marketing aussieht</em>. Wir vermieten Zimmer, die sich wie Zuhause anfühlen. Und wir haben Kärntens erste KI-Influencerin erschaffen.</p>
+    <!-- Story Bridge 1 -->
+    <div class="story-bridge">
+        <p class="bridge-text reveal">Wir sind <em>Maku Hanga</em>. Das ist Maori und heißt: <span class="hover-swap" style="cursor:help"><span class="original">»Wir schaffen es!«</span><span class="swapped">»Let's do it!«</span></span> — Eine kleine Agentur aus Kärnten, die große Ideen hat.</p>
+    </div>
+
+    <!-- Services -->
+    <section class="services-section" id="agentur">
+        <div class="services-inner">
+            <div class="chapter-label reveal">Kapitel 01</div>
+            <h2 class="reveal">Was wir tun — und warum es funktioniert</h2>
+            <p class="section-intro reveal">Vier Disziplinen. Ein Ziel: Dass Ihr Unternehmen so gesehen wird, wie es wirklich ist.</p>
+            <div class="services-grid">
+                <div class="service-card reveal" style="transition-delay: 0.1s">
+                    <span class="service-icon">🎯</span>
+                    <h3>Promotion & Marketing</h3>
+                    <p>Kreative Kampagnen, die nicht nach Werbung aussehen — aber wirken.</p>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.2s">
+                    <span class="service-icon">🤝</span>
+                    <h3>Recruiting</h3>
+                    <p>Wir finden Menschen, die zu Ihrem Unternehmen passen. Nicht nur auf dem Papier.</p>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.3s">
+                    <span class="service-icon">🔗</span>
+                    <h3>Sponsoring</h3>
+                    <p>Strategische Partnerschaften, die beiden Seiten etwas bringen.</p>
+                </div>
+                <div class="service-card reveal" style="transition-delay: 0.4s">
+                    <span class="service-icon">🤖</span>
+                    <h3>KI-Content</h3>
+                    <p>Die Zukunft des Contents ist da. Wir nutzen sie — transparent und ehrlich.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Scene: Services -->
-    <section class="scene-services" id="agentur">
-        <div class="scene-header">
-            <p class="scene-label sr">Agentur</p>
-            <h2 class="sr">Was wir können.</h2>
+    <!-- Counter -->
+    <div class="counter-section">
+        <div class="counter-item reveal-scale">
+            <div class="counter-number" data-target="4">0</div>
+            <div class="counter-label">Services</div>
         </div>
-        <div class="services-scroll">
-            <div class="service-frame">
-                <div class="sf-number">01</div>
-                <span class="sf-icon">🎯</span>
-                <h3>Promotion & Marketing</h3>
-                <p>Kreative Kampagnen, die nicht nach Werbung aussehen — aber wirken.</p>
-            </div>
-            <div class="service-frame">
-                <div class="sf-number">02</div>
-                <span class="sf-icon">🤝</span>
-                <h3>Recruiting</h3>
-                <p>Wir finden Menschen, die zu Ihrem Unternehmen passen. Nicht nur auf dem Papier.</p>
-            </div>
-            <div class="service-frame">
-                <div class="sf-number">03</div>
-                <span class="sf-icon">🔗</span>
-                <h3>Sponsoring</h3>
-                <p>Strategische Partnerschaften, die beiden Seiten etwas bringen.</p>
-            </div>
-            <div class="service-frame">
-                <div class="sf-number">04</div>
-                <span class="sf-icon">🤖</span>
-                <h3>KI-Content</h3>
-                <p>Die Zukunft des Contents ist da. Wir nutzen sie — transparent und ehrlich.</p>
-            </div>
+        <div class="counter-item reveal-scale">
+            <div class="counter-number" data-target="21">0</div>
+            <div class="counter-label">Studentenzimmer</div>
         </div>
-        <p class="scroll-hint-text">← Seitwärts scrollen →</p>
-    </section>
+        <div class="counter-item reveal-scale">
+            <div class="counter-number" data-target="1">0</div>
+            <div class="counter-label">KI-Influencerin</div>
+        </div>
+        <div class="counter-item reveal-scale">
+            <div class="counter-number" data-target="100">0</div>
+            <div class="counter-label">% Kärnten</div>
+        </div>
+    </div>
 
-    <!-- Scene: Flats -->
-    <section class="scene-flats" id="flats">
+    <!-- Story Bridge 2 -->
+    <div class="story-bridge">
+        <p class="bridge-text reveal">Aber wir machen nicht nur Kampagnen. Wir schaffen auch <em>Räume</em> — ganz buchstäblich.</p>
+    </div>
+
+    <!-- Flats -->
+    <section class="flats-section" id="flats">
         <div class="flats-inner">
-            <div class="flats-top">
-                <div class="flats-number sr" data-target="21">0</div>
-                <div class="flats-content">
-                    <p class="scene-label sr">Studentenwohnen</p>
-                    <h2 class="sr">Zimmer in Klagenfurt.<br>Skandi-Stil. All-inclusive.</h2>
-                    <p class="sr">Studentenwohnen ohne Überraschungen auf der Nebenkostenabrechnung. Warm, funktional, fair — und so flexibel wie dein Studium.</p>
+            <div class="flats-visual reveal-left">
+                <div class="room-grid">
+                    <div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div>
+                    <div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div>
+                    <div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div><div class="room-cell"></div>
                 </div>
             </div>
-            <div class="flats-features">
-                <div class="ff-item sr" style="transition-delay: 0.05s">
-                    <span class="ff-icon">🪵</span>
-                    <span>Skandi-Stil, komplett möbliert</span>
-                </div>
-                <div class="ff-item sr" style="transition-delay: 0.1s">
-                    <span class="ff-icon">💡</span>
-                    <span>All-inclusive (Strom, Heizung, Wasser, Internet)</span>
-                </div>
-                <div class="ff-item sr" style="transition-delay: 0.15s">
-                    <span class="ff-icon">📅</span>
-                    <span>Halbjährlich (WS ab Okt / SS ab März)</span>
-                </div>
-                <div class="ff-item sr" style="transition-delay: 0.2s">
-                    <span class="ff-icon">🎓</span>
-                    <span>Uni Klagenfurt, FH Kärnten, PH</span>
-                </div>
-                <div class="ff-item sr" style="transition-delay: 0.25s">
-                    <span class="ff-icon">🔄</span>
-                    <span>Verlängerbar — so lange du willst</span>
-                </div>
-                <div class="ff-item sr" style="transition-delay: 0.3s">
-                    <span class="ff-icon">✨</span>
-                    <span>Keine versteckten Kosten</span>
-                </div>
-            </div>
-            <div class="sr" style="transition-delay: 0.35s">
+            <div class="flats-content reveal-right">
+                <div class="chapter-label">Kapitel 02</div>
+                <h2>21 Zimmer. Klagenfurt. Skandi-Stil.</h2>
+                <p>Studentenwohnen, wie es sein sollte: Warm, funktional, fair — und ohne böse Überraschungen bei der Nebenkostenabrechnung.</p>
+                <ul class="flat-features">
+                    <li><span>✨</span> Skandi-Stil, komplett möbliert</li>
+                    <li><span>💡</span> All-inclusive Warmmiete (Strom, Heizung, Wasser, Internet)</li>
+                    <li><span>📅</span> Halbjährliche Mietverträge (WS ab Oktober / SS ab März)</li>
+                    <li><span>🎓</span> Für Studierende: Uni Klagenfurt, FH Kärnten, PH</li>
+                    <li><span>🔄</span> Verlängerbar — so lange du willst</li>
+                </ul>
                 <a href="mailto:office@maku-hanga.com?subject=Zimmeranfrage" class="btn-flats">Zimmer anfragen →</a>
             </div>
         </div>
     </section>
 
-    <!-- Scene: Lizzy AI -->
-    <section class="scene scene-lizzy" id="lizzy">
+    <!-- Story Bridge 3 -->
+    <div class="story-bridge">
+        <p class="bridge-text reveal">Und dann ist da noch <em>Lizzy</em>. Unser mutigstes Projekt.</p>
+    </div>
+
+    <!-- Lizzy AI -->
+    <section class="lizzy-section" id="lizzy">
         <div class="lizzy-inner">
-            <div class="lizzy-badge sr">Showcase</div>
-            <div class="lizzy-avatar sr">🤖</div>
-            <p class="lizzy-quote sr">»Kärntens erste KI-Influencerin«</p>
-            <p class="lizzy-desc sr">Unser neuestes Projekt: Lizzy AI Solutions. Ehrliche Tool-Reviews, KI-Insights und der Beweis, dass künstliche Intelligenz auch Charakter haben kann.</p>
-            <a href="https://youtube.com/@LizzyAISolutions" target="_blank" rel="noopener" class="btn-youtube sr">▶ YouTube</a>
+            <div class="lizzy-badge reveal">Showcase</div>
+            <div class="lizzy-avatar reveal-scale">🤖</div>
+            <h2 class="reveal">Kärntens erste KI-Influencerin</h2>
+            <p class="reveal">Unser neuestes Projekt: Lizzy AI Solutions. Ehrliche Tool-Reviews, KI-Insights und der Beweis, dass künstliche Intelligenz auch menschlich sein kann. Auf YouTube.</p>
+            <a href="https://youtube.com/@LizzyAISolutions" target="_blank" rel="noopener" class="btn-youtube reveal">▶ Auf YouTube ansehen</a>
         </div>
     </section>
 
-    <!-- Scene: Kontakt -->
-    <section class="scene-kontakt" id="kontakt">
+    <!-- Kontakt -->
+    <section class="kontakt-section" id="kontakt">
         <div class="kontakt-inner">
-            <h2 class="sr">Lass uns reden.</h2>
-            <div class="kontakt-line sr" style="transition-delay: 0.1s">
-                <a href="mailto:office@maku-hanga.com">
-                    <span class="kl-icon">✉️</span>
-                    <span>office@maku-hanga.com</span>
-                </a>
+            <div class="chapter-label reveal" style="justify-content: center;">Kapitel 04</div>
+            <h2 class="reveal">Neugierig geworden?</h2>
+            <p class="kontakt-sub reveal">Gute Geschichten beginnen mit einem Gespräch.</p>
+            <div class="kontakt-grid">
+                <div class="kontakt-item reveal" style="transition-delay: 0.1s">
+                    <div class="ki">✉️</div>
+                    <h3>E-Mail</h3>
+                    <a href="mailto:office@maku-hanga.com">office@maku-hanga.com</a>
+                </div>
+                <div class="kontakt-item reveal" style="transition-delay: 0.2s">
+                    <div class="ki">📞</div>
+                    <h3>Telefon</h3>
+                    <a href="tel:+4369010401004">+43 690 10401004</a>
+                </div>
+                <div class="kontakt-item reveal" style="transition-delay: 0.3s">
+                    <div class="ki">📍</div>
+                    <h3>Adresse</h3>
+                    <p>Dürrenmoos 11a<br>9111 Völkermarkt</p>
+                </div>
             </div>
-            <div class="kontakt-line sr" style="transition-delay: 0.2s">
-                <a href="tel:+4369010401004">
-                    <span class="kl-icon">📞</span>
-                    <span>+43 690 10401004</span>
-                </a>
-            </div>
-            <p class="kontakt-address sr" style="transition-delay: 0.3s">📍 Dürrenmoos 11a, 9111 Völkermarkt, Österreich</p>
         </div>
     </section>
 
@@ -872,45 +993,60 @@
     </footer>
 
     <script>
-        // Nav scroll
+        // Navigation scroll effect
         window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 80);
         });
 
         // Mobile nav
         function toggleNav() {
             document.getElementById('navLinks').classList.toggle('open');
         }
+
+        // Close mobile nav on link click
         document.querySelectorAll('.nav-links a').forEach(a => {
-            a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+            a.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
         });
 
         // Scroll reveal
-        const srEls = document.querySelectorAll('.sr');
-        const srObs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-        srEls.forEach(el => srObs.observe(el));
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-        // Flats counter
-        const flatsNum = document.querySelector('.flats-number');
-        if (flatsNum) {
-            const numObs = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = parseInt(flatsNum.dataset.target);
-                        let current = 0;
-                        const timer = setInterval(() => {
-                            current++;
-                            flatsNum.textContent = current;
-                            if (current >= target) clearInterval(timer);
-                        }, 50);
-                        numObs.unobserve(flatsNum);
-                    }
-                });
-            }, { threshold: 0.3 });
-            numObs.observe(flatsNum);
-        }
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Counter animation
+        const counterNumbers = document.querySelectorAll('.counter-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    let current = 0;
+                    const increment = target / 40;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            el.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            el.textContent = Math.floor(current);
+                        }
+                    }, 40);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterNumbers.forEach(el => counterObserver.observe(el));
     </script>
 </body>
 </html>
